@@ -7,12 +7,7 @@ __author__ = 'jslvtr'
 
 class Database(object):
     URI = 'mongodb+srv://greatnages:greatnages@pricing-cluster-pbamx.mongodb.net/pricingdb'
-    DATABASE = None
-
-    @staticmethod
-    def initialize():
-        client = pymongo.MongoClient(Database.URI)
-        Database.DATABASE = client['pricingdb']
+    DATABASE = pymongo.MongoClient(URI).get_database()
 
     @staticmethod
     def insert(collection, data):
